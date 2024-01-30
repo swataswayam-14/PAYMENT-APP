@@ -16,44 +16,50 @@ const signUpBody = zod.object({
 
 //signUp route
 userRouter.post('/signup',async(req,res)=>{
-    const {success} = signUpBody.safeParse(req.body)
-    if(!success){
-        res.status(411).json({
-            message:'Email already taken/ incorrect inputs'
-        })
-    }
-    const username = req.body.username
-    const firstname = req.body.firstname
-    const lastname = req.body.lastname
-    const password = req.body.password
+    try{
+        //console.log('request came');
+        const {success} = signUpBody.safeParse(req.body)
+        if(!success){
+            res.status(411).json({
+                message:'Email already taken/ incorrect inputs'
+            })
+        }
+        const username = req.body.username
+        const firstname = req.body.firstname
+        const lastname = req.body.lastname
+        const password = req.body.password
 
-    let isAlreadyExists = await User.findOne({
-        username
-    })
-    if(isAlreadyExists){
-        res.status(411).json({
-            message: "Email already taken/ incorrect inputs"
+        let isAlreadyExists = await User.findOne({
+            username
         })
-    }
-    const user = await User.create({
-        username,
-        password,
-        firstname,
-        lastname
-    })
-    const user_id = user._id
-    await Account.create({
-        userId: user_id,
-        balance: 1 + Math.floor(Math.random()*10000) //a random balace is given to the user
-    })
-    const token = jwt.sign({
-        user_id
-    },"secret")
-
-    res.json({
-        message:'User created successfully',
-        token:token
-    })
+        if(isAlreadyExists){
+            res.status(411).json({
+                message: "Email already taken/ incorrect inputs"
+            })
+        }
+        const user = await User.create({
+            username,
+            password,
+            firstname,
+            lastname
+        })
+        const user_id = user._id
+        await Account.create({
+            userId: user_id,
+            balance: 1 + Math.floor(Math.random()*10000) //a random balace is given to the user
+        })
+        const token = jwt.sign({
+            user_id
+        },"secret")
+        res.json({
+            message:'User created successfully',
+            token:token
+        })
+    }catch(e){
+        res.json({
+            message:"there is some problem, please try again later"
+        })
+    }  
 })
 
 const signInObject = zod.object({
@@ -62,6 +68,7 @@ const signInObject = zod.object({
 })
 
 userRouter.post('/signin',async(req,res)=>{
+    console.log('a sign in request');
     const {success} = signInObject.safeParse(req.body)
     if(!success){
         res.status(411).json({
