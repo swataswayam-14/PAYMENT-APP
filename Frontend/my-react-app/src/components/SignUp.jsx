@@ -24,9 +24,9 @@ const SignUp = () => {
     }
     
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen items-center justify-center bg-green-200">
       <div className="w-full max-w-sm">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form className="bg-green-300 shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h2 className="text-2xl font-medium text-center mb-4">Sign Up</h2>
           <input
             onChange={(e)=>{
@@ -60,8 +60,8 @@ const SignUp = () => {
             placeholder="Last Name"
             className="block w-full p-2 mb-4"
           />
-          <button onClick={RegisterUser} className="w-full p-2 bg-blue-500 text-white rounded">
-          <Link to="/dashboard" onClick={RegisterUser}>Sign Up</Link>
+          <button onClick={RegisterUser} className="w-full p-2 bg-yellow-500 text-white rounded">
+          <Link to="/dashboard" onClick={RegisterUser}><p className='text-black'>Sign Up</p></Link>
           </button>
         </form>
       </div>

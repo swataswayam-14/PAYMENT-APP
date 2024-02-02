@@ -16,9 +16,9 @@ function SignIn(){
             console.log('There is some error');
         }
     }
-    return <div className="flex h-screen items-center justify-center">
+    return <div className="flex h-screen items-center justify-center bg-green-200">
         <div className="w-full max-w-sm">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 bg-green-300">
           <h2 className="text-2xl font-medium text-center mb-4">Sign In</h2>
           <input
             type="text"
@@ -36,8 +36,8 @@ function SignIn(){
                 setPassword(e.target.value)
             }}
           />
-          <button onClick={SignInUser} className="w-full p-2 bg-blue-500 text-white rounded">
-          <Link to="/dashboard">Sign In</Link>
+          <button onClick={SignInUser} className="w-full p-2 bg-blue-500 text-white rounded bg-yellow-500">
+          <Link to="/dashboard"><p className='text-black'>Sign In</p></Link>
           </button>
         </form>
         </div>
