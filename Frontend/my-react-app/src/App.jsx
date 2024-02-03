@@ -6,6 +6,8 @@ import Dashboard from "./components/Dashboard";
 import SendMoney from "./components/SendMoney";
 import Me from "./components/Me";
 import ProtectedRoute from "./ProtectedRoute";
+import CheckBalance from "../CheckBalance";
+import YourDashboard from "../YourDashboard";
 function App(){
     return(
       <Router>
@@ -23,10 +25,26 @@ function App(){
               }
             />
             <Route
+              path="/checkbalance"
+              element={
+                <ProtectedRoute>
+                  <CheckBalance/>
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/sendmoney"
               element={
                 <ProtectedRoute>
                   <SendMoney/>
+                </ProtectedRoute>
+              }
+            />
+              <Route
+              path="/yourdashboard"
+              element={
+                <ProtectedRoute>
+                  <YourDashboard/>
                 </ProtectedRoute>
               }
             />

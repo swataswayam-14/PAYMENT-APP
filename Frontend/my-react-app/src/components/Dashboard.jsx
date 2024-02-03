@@ -5,13 +5,14 @@ import axios from 'axios';
 
 function Dashboard() {
   const [users, setUsers] = useState([]);
+  const [searchValue , setSearchValue] = useState('')
 
   useEffect(() => {
     async function fetchUsers() {
       const response = await axios.get('http://localhost:3000/api/v1/user/bulk');
       setUsers(response.data.user);
     }
-    if(localStorage.token){
+    if(localStorage.getItem('token')){
       fetchUsers();
     }
   }, []);
@@ -23,10 +24,16 @@ function Dashboard() {
       <input
           type='text'
           placeholder='Search'
+          value={searchValue}
+          onChange={(e)=>{
+            setSearchValue(e.target.value)
+          }}
           className='block w-1/2 p-2 mx-auto mb-4 border border-gray-300 shadow-md rounded-md'
       />
       <ul className="bg-green-300 mt-4">
-        {users.map((user) => (
+        {users.filter((user)=>
+          user.username.toLowerCase().includes(searchValue.toLowerCase())
+        ).map((user) => (
         <li key={user._id} className="flex items-center justify-between py-2">
       <div className="flex items-center bg-green-300">
         <div className="flex-shrink-0">
@@ -42,9 +49,10 @@ function Dashboard() {
         </div>
         </div>
     <div>
-      <Link to={`/sendmoney`} className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Send Money
-      </Link>
+    
+    <Link to={{ pathname: '/sendmoney', state: { username: user.username, firstname:user.firstname , lastname:user.lastname } }} className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Send Money
+    </Link>
     </div>
   </li>
 ))}

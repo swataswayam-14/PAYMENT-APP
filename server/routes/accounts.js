@@ -33,7 +33,7 @@ const transferObject = zod.object({
 accountRouter.post('/transfer',authMiddleware,async(req,res)=>{
     const {success} = transferObject.safeParse(req.body)
     if(!success){
-        res.status(411).json({
+        return res.status(411).json({
             message:'Invalid inputs'
         })
     }
@@ -42,7 +42,7 @@ accountRouter.post('/transfer',authMiddleware,async(req,res)=>{
     })
     const balance = senderAccount.balance
     if((balance-req.body.amount) < 0){
-        res.status(400).json({
+        return res.status(400).json({
             message:"insufficient balance"
         })
     }
@@ -65,11 +65,11 @@ accountRouter.post('/transfer',authMiddleware,async(req,res)=>{
                 balance: req.body.amount
             }
         })
-        res.status(200).json({
+        return res.status(200).json({
             message:'Transfer Successful'
         })
     }else{
-        res.status(400).json({
+        return res.status(400).json({
             message:'Invalid Account'
         })
     }

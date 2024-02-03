@@ -21,7 +21,7 @@ const SignUp = () => {
             const token = response.data.token 
             localStorage.setItem('token', token)
             console.log(`The token is ${token}`);
-            navigate("/dashboard")
+            navigate("/yourdashboard")
             console.log('after the usenavigate');
         }catch(err){
             console.log(err);
