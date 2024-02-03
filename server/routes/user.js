@@ -20,7 +20,7 @@ userRouter.post('/signup',async(req,res)=>{
         //console.log('request came');
         const {success} = signUpBody.safeParse(req.body)
         if(!success){
-            res.status(411).json({
+            return res.status(411).json({
                 message:'Email already taken/ incorrect inputs'
             })
         }
@@ -33,7 +33,7 @@ userRouter.post('/signup',async(req,res)=>{
             username
         })
         if(isAlreadyExists){
-            res.status(411).json({
+            return res.status(411).json({
                 message: "Email already taken/ incorrect inputs"
             })
         }
@@ -51,12 +51,12 @@ userRouter.post('/signup',async(req,res)=>{
         const token = jwt.sign({
             user_id
         },"secret")
-        res.json({
+        return res.json({
             message:'User created successfully',
             token:token
         })
     }catch(e){
-        res.json({
+        return res.json({
             message:"there is some problem, please try again later"
         })
     }  

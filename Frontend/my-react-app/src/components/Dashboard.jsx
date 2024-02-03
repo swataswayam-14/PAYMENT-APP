@@ -11,7 +11,9 @@ function Dashboard() {
       const response = await axios.get('http://localhost:3000/api/v1/user/bulk');
       setUsers(response.data.user);
     }
-    fetchUsers();
+    if(localStorage.token){
+      fetchUsers();
+    }
   }, []);
 
   return (
