@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 const SendMoney = () => {
+  const navigate = useNavigate()
   const location = useLocation()
   const { username, firstname, lastname } = location.state || {};
 
@@ -24,6 +25,7 @@ const SendMoney = () => {
               'Authorization': `Bearer ${token}`
             }
           })
+          navigate("/yourdashboard")
         }catch(e){
           console.log(e);
         }

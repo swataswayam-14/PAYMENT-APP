@@ -28,12 +28,12 @@ const SignUp = () => {
         }
     }
     
-  return  (<div className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 min-h-screen flex items-center">
-  <div className="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg bg-gradient-to-r from-green-700 via-green-300 to-yellow-300">
+  return  (<div className="bg-white dark:bg-gray-800 min-h-screen flex items-center">
+  <div className="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg bg-coral-black bg-gray-400">
     <h2 className="text-2xl font-semibold mb-4">
       Don't have an account? Register to access all the features:
     </h2>
-    <p className="text-gray-600 mb-6">
+    <p className="text-gray-800 mb-6">
       Manage your business in one place. It's free!
     </p>
     <form >
@@ -79,10 +79,10 @@ const SignUp = () => {
       />
       <button
         type="button"
-        className="w-full bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600"
+        className="w-full bg-gray-600 text-white py-2 rounded-md hover:bg-gray-700"
         onClick={RegisterUser}
       >
-        <p className='text-black'>Register</p>
+        <p className='text-gray-300'>Register</p>
       </button>
     </form>
   </div>

@@ -1,0 +1,53 @@
+/* Dark and bright accents */
+
+/* Dark dominant colors and backgrounds */
+.bg-dark-900 {
+    background-color: #0f172a;
+  }
+  
+  .bg-dark-800 {
+    background-color: #1e293b;
+  }
+  
+  .bg-dark-700 {
+    background-color: #334155;
+  }
+  
+  /* Gold accents */
+  .accent-gold-400 {
+    accent-color: #fbbf24;
+  }
+  
+  .accent-gold-500 {
+    accent-color: #f59e0b;
+  }
+  
+  .accent-gold-600 {
+    accent-color: #d97706;
+  }
+  
+  /* Bright red or pink accents */
+  .accent-red-400 {
+    accent-color: #f87171;
+  }
+  
+  .accent-red-500 {
+    accent-color: #ef4444;
+  }
+  
+  .accent-red-600 {
+    accent-color: #dc2626;
+  }
+  
+  .accent-pink-400 {
+    accent-color: #f472b6;
+  }
+  
+  .accent-pink-500 {
+    accent-color: #ec4899;
+  }
+  
+  .accent-pink-600 {
+    accent-color: #db2777;
+  }
+  

@@ -4,23 +4,23 @@ function YourDashboard() {
   const navigate = useNavigate();
 
   return (
-    <div className='bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500'>
-        <h1 className='text-4xl text-center'>Your Dashboard</h1>
-    <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
+    <div className='bg-white dark:bg-gray-800'>
+        <h1 className='text-4xl text-center text-gray-300 font-bold p-4'>Your Dashboard</h1>
+    <div className="h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-800">
       <button
-        className="w-50 bg-blue-500 text-white py-2 p-4 rounded-full hover:bg-blue-600 text-lg"
+        className="p-4 py-4 bg-coral-black text-gray-700 rounded-full hover:bg-blue-600 text-lg"
         onClick={() => navigate('/checkbalance')}
       >
-        Check Balance
+        <p className='text-gray-900 font-bold'>Check Balance</p>
       </button>
       <br/>
       <br/>
       <br/>
       <button
-        className="w-50 bg-blue-500 text-white py-2 p-4 rounded-full hover:bg-blue-600 text-lg"
+        className="w-50 bg-coral-black text-gray-700 py-4 p-4 rounded-full hover:bg-blue-600 text-lg"
         onClick={() => navigate('/dashboard')}
       >
-        Transfer Money
+        <p className='text-gray-900 font-bold'>Transfer Money</p>
       </button>
     </div></div>
   );
