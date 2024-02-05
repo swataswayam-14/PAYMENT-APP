@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+let currentUser
 const SignIn = () => {
     const [username , setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -12,6 +13,7 @@ const SignIn = () => {
                 password
             })
             const token = response.data.token
+            currentUser = response.data.user
             localStorage.setItem('token', token)
             navigate("/yourdashboard")
         }catch(err){
@@ -61,4 +63,4 @@ const SignIn = () => {
 );
 };
 
-export default SignIn;
+export {currentUser, SignIn}

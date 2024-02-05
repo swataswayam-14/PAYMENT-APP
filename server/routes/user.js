@@ -5,6 +5,8 @@ const zod = require("zod")
 const jwt = require("jsonwebtoken")
 const JWT_SECRET = require("../config")
 const authMiddleware = require("../middleware/authenticateUser")
+require('localstorage-polyfill')
+global.localStorage = localStorage;
 
 const signUpBody = zod.object({
     username: zod.string().email(),
@@ -89,7 +91,8 @@ userRouter.post('/signin',async(req,res)=>{
         },"secret")
     
         res.status(200).json({
-            token:token
+            token:token,
+            user:user.username
         })
         return
     }
@@ -129,25 +132,33 @@ userRouter.put('/',authMiddleware, async(req,res)=>{
 
 userRouter.get('/bulk', async(req,res)=>{
     const filter = req.query.filter || ""
-    const users = await User.find({
-        $or:[{
-            firstname :{
-                "$regex":filter
-            }
-        },{
-            lastname:{
-                "$regex":filter
-            }
-        }]
-    })
-    res.json({
-        user: users.map(user =>({
-            username : user.username,
-            firstname: user.firstname,
-            lastname: user.lastname,
-            _id: user._id
-        }))
-    })
+    const token = req.headers.authorization
+    try{
+        const users = await User.find({
+            $or:[{
+                firstname :{
+                    "$regex":filter
+                }
+            },{
+                lastname:{
+                    "$regex":filter
+                },
+            },
+        ]
+        })
+        res.json({
+            user: users.map(user =>({
+                username : user.username,
+                firstname: user.firstname,
+                lastname: user.lastname,
+                _id: user._id
+            }))
+        })
+    }catch(e){
+        console.log(e)
+    }
+   
 })
+
 
 module.exports = userRouter

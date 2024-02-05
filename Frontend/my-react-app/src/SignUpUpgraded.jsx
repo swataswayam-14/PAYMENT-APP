@@ -29,8 +29,8 @@ const SignUp = () => {
     }
     
   return  (<div className="bg-white dark:bg-gray-800 min-h-screen flex items-center">
-  <div className="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg bg-coral-black bg-gray-400">
-    <h2 className="text-2xl font-semibold mb-4">
+  <div className="w-full max-w-md mx-auto p-8 rounded-lg shadow-lg bg-gray-400">
+    <h2 className="text-2xl font-semibold mb-4 ">
       Don't have an account? Register to access all the features:
     </h2>
     <p className="text-gray-800 mb-6">

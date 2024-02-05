@@ -1,6 +1,6 @@
 import React from "react";
 import SignUp from "./SignUpUpgraded";
-import SignIn from "./SignInUpgraded";
+import {SignIn} from "./SignInUpgraded";
 import {BrowserRouter as Router , Route, Routes} from "react-router-dom"
 import Dashboard from "./components/Dashboard";
 import SendMoney from "./components/SendMoney";
