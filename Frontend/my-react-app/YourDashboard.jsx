@@ -16,22 +16,22 @@ function YourDashboard() {
           </button>
           <div></div>
         </div>
-    <div className="h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-800">
-      <button
-        className="p-4 py-4 bg-coral-black text-gray-700 rounded-full hover:bg-blue-600 text-lg"
-        onClick={() => navigate('/checkbalance')}
-      >
-        <p className='text-gray-900 font-bold'>Check Balance</p>
-      </button>
-      <br/>
-      <br/>
-      <br/>
-      <button
-        className="w-50 bg-coral-black text-gray-700 py-4 p-4 rounded-full hover:bg-blue-600 text-lg"
-        onClick={() => navigate('/dashboard')}
-      >
-        <p className='text-gray-900 font-bold'>Transfer Money</p>
-      </button>
+        <div className="h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-800">
+          <button
+            className="p-4 py-4 bg-coral-black text-gray-700 rounded-full hover:bg-blue-600 text-lg"
+            onClick={() => navigate('/checkbalance')}
+          >
+            <p className='text-gray-400 text-3xl font-bold'>Check Balance</p>
+          </button>
+          <br/>
+          <br/>
+          <br/>
+          <button
+            className="w-50 bg-coral-black text-gray-700 py-4 p-4 rounded-full hover:bg-blue-600 text-lg"
+            onClick={() => navigate('/dashboard')}
+          >
+            <p className='text-gray-400 text-3xl font-bold'>Transfer Money</p>
+          </button>
     </div></div>
   );
 }

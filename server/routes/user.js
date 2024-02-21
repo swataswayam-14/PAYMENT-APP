@@ -55,7 +55,8 @@ userRouter.post('/signup',async(req,res)=>{
         },"secret")
         return res.json({
             message:'User created successfully',
-            token:token
+            token:token,
+            user:user.username
         })
     }catch(e){
         return res.json({

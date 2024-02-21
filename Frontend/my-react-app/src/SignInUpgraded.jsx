@@ -14,6 +14,7 @@ const SignIn = () => {
             })
             const token = response.data.token
             currentUser = response.data.user
+            console.log(currentUser);
             localStorage.setItem('token', token)
             navigate("/yourdashboard")
         }catch(err){

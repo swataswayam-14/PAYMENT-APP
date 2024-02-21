@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-const SendMoney = () => {
+const SendMoney = (props) => {
   const navigate = useNavigate()
   const location = useLocation()
-  const { username, firstname, lastname } = location.state || {};
+  const {firstname, lastname, username} = location.state || {};
 
   useEffect(()=>{
     console.log(firstname+' '+lastname);

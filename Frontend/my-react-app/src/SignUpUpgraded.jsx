@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
+let currentUsers
 const SignUp = () => {
     const [username , setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -19,6 +19,8 @@ const SignUp = () => {
                 lastname
             })
             const token = response.data.token 
+            currentUsers = response.data.user
+            console.log(currentUsers);
             localStorage.setItem('token', token)
             console.log(`The token is ${token}`);
             navigate("/yourdashboard")
@@ -90,4 +92,4 @@ const SignUp = () => {
 );
 };
 
-export default SignUp;
+export {currentUsers, SignUp}

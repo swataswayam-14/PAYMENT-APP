@@ -2,8 +2,20 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { currentUser } from '../SignInUpgraded';
+import { currentUser } from '../SignInUpgraded'; // there is a bug here as , the before this code the user who was logging in wouldnot see his name in the dashboard , I wanted to implement the same thing when the user register and goes to transfer page should not see his name in the dashboard , but this f
+import { currentUsers } from '../SignUpUpgraded';
 function Dashboard() {
+  let currentIn = currentUser
+  let currentReg = currentUsers
+
+  if(!currentIn){
+    currentIn = 1
+  }
+  if(!currentReg){
+    currentReg = 1
+  }
+  console.log(currentUsers);
+  console.log(currentUser);
   const [users, setUsers] = useState([]);
   const [searchValue , setSearchValue] = useState('')
   const [balance , setBalance] = useState("")
@@ -62,9 +74,8 @@ function Dashboard() {
       />
       <ul className="bg-white dark:bg-gray-700 mt-4">
         {users.filter((user )=>
-          user.username.toLowerCase().includes(searchValue.toLowerCase()) && (user.username != currentUser)
+          user.username.toLowerCase().includes(searchValue.toLowerCase()) && ((user.username != currentReg) || (user.username != currentIn ))
         ).map((user) => (
-
         <li key={user._id} className="flex items-center justify-between py-2 bg-white dark:bg-gray-700">
       <div className="flex items-center bg-white dark:bg-gray-700">
         <div className="flex-shrink-0 bg-white dark:bg-gray-700">

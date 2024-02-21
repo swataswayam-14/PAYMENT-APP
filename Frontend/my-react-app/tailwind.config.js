@@ -11,6 +11,9 @@ export default {
         'yellow-black': '#fbbf24',
         'coral-black': '#ff7f50',
       },
+      backgroundImage:{
+        'home':"url('./body-img.png')"
+      },
     },
   },
   
