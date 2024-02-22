@@ -8,7 +8,7 @@ const SignIn = () => {
     const navigate = useNavigate()
     async function SignInUser(){
         try{
-            const response = await axios.post('13.233.95.171:3000/api/v1/user/signin', {
+            const response = await axios.post('https://d2jhsbb933j31i.cloudfront.net/13.233.95.171:3000/api/v1/user/signin', {
                 username,
                 password
             })

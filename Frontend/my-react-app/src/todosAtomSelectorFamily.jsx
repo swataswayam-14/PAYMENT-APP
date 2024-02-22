@@ -9,7 +9,7 @@ export const todosAtomSelectorFamily = atomFamily({
             return async function({get}){
                 await new Promise(r => setTimeout(r,5000))
                 //throw new Error("backend call failed")
-                const res = await axios.get(`http://localhost:3000/addTodo/${id}`)
+                const res = await axios.get(`fdsfsdf`)
                 return res.data
             }
         }

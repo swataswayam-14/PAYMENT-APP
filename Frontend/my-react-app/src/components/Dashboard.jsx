@@ -24,7 +24,7 @@ function Dashboard() {
             const token = localStorage.getItem('token')
             if(token){
                 try{
-                    const response = await axios.get('13.233.95.171:3000/api/v1/account/balance',{
+                    const response = await axios.get('https://d2jhsbb933j31i.cloudfront.net/13.233.95.171:3000/api/v1/account/balance',{
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -40,7 +40,7 @@ function Dashboard() {
     },[])
   useEffect(() => {
     async function fetchUsers() {
-      const response = await axios.get('13.233.95.171:3000/api/v1/user/bulk');
+      const response = await axios.get('https://d2jhsbb933j31i.cloudfront.net/13.233.95.171:3000/api/v1/user/bulk');
       setUsers(response.data.user);
     }
     if(localStorage.getItem('token')){
