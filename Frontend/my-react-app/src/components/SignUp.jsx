@@ -9,7 +9,7 @@ const SignUp = () => {
 
     async function RegisterUser(){
         try{
-            const response = await axios.post('http://localhost:3000/api/v1/user/signup',{
+            const response = await axios.post('13.233.95.171:3000/api/v1/user/signup',{
                 username,
                 password,
                 firstname,
