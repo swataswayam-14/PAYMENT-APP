@@ -17,7 +17,7 @@ const SendMoney = (props) => {
       const token = localStorage.getItem('token')
       if(token){
         try{
-          await axios.post('13.233.95.171/api/v1/account/transfer',{
+          await axios.post('13.233.95.171:3000/api/v1/account/transfer',{
             to: id.toString(),
             amount: amount
           },{

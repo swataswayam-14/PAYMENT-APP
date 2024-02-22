@@ -9,7 +9,7 @@ const CheckBalance = ()=>{
             const token = localStorage.getItem('token')
             if(token){
                 try{
-                    const response = await axios.get('http://localhost:3000/api/v1/account/balance',{
+                    const response = await axios.get('13.233.95.171:3000/api/v1/account/balance',{
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }

@@ -12,7 +12,7 @@ const SignUp = () => {
         console.log('REgister user is hit');
         try{
             console.log('inside the try block');
-            const response = await axios.post('13.233.95.171/api/v1/user/signup',{
+            const response = await axios.post('13.233.95.171:3000/api/v1/user/signup',{
                 username,
                 password,
                 firstname,
